@@ -1,11 +1,37 @@
+:root {
+  --primary-color: #e21;
+  --primary-color-dark: #900;
+
+  --primary-bg: #f7f7f7;
+  --secondy-bg: #ffffff;
+
+  --btn-theme: #a9a9a9;
+
+  --text: #000000;
+  --subtitle: rgba(0, 0, 0, 0.2);
+
+  --bg-image: url('../img/onda-light.svg');
+}
+
+.active {
+  --primary-bg: #111111;
+  --secondy-bg: #000000;
+
+  --text: #ffffff;
+  --subtitle: rgba(255, 255, 255, 0.2);
+
+  --bg-image: url('../img/onda-dark.svg');
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0px;
-  background: #f7f7f7;
+  background: var(--primary-bg);
   display: grid;
   gap: 60px;
   justify-items: center;
   margin-top: 60px;
+  color: var(--text);
 }
 
 img {
@@ -41,6 +67,42 @@ ul {
   justify-items: center;
 }
 
+.btn {
+  position: relative;
+}
+
+.btn-dark {
+  transition: background 0.5s;
+}
+.btn {
+  width: 70px;
+  height: 25px;
+  border: 2px solid var(--btn-theme);
+  border-radius: 60px;
+  position: absolute;
+  top: 63px;
+  right: 180px;
+  cursor: pointer;
+  transition: right 0.5s;
+}
+
+.btn:before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: var(--btn-theme);
+  border-radius: 50%;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  transition: left 0.5s;
+}
+
+.btn.active:before {
+  left: 48px;
+}
+
 .menu {
   display: flex;
   flex-wrap: wrap;
@@ -49,16 +111,16 @@ ul {
 }
 
 .menu a {
-  background: #ffffff;
+  background: var(--secondy-bg);
   padding: 15px 30px;
   border-radius: 4px;
-  color: #000000;
+  color: var(--text);
   text-transform: uppercase;
-  border: 2px solid #fff;
+  border: 2px solid var(--primary-bg);
 }
 
 .menu a:hover {
-  border-color: #e21;
+  border-color: var(--primary-color);
 }
 
 .container {
@@ -68,7 +130,7 @@ ul {
 }
 
 .info {
-  background: #fff;
+  background: var(--secondy-bg);
   padding: 40px;
   text-align: right;
   position: relative;
@@ -86,7 +148,7 @@ ul {
   content: '';
   width: 60px;
   height: 4px;
-  background: #e21;
+  background: var(--primary-color);
   position: absolute;
   top: 30px;
   right: -30px;
@@ -98,29 +160,29 @@ ul {
 }
 
 .view-more {
-  background: #e21;
-  color: #fff;
+  background: var(--primary-color);
+  color: #ffffff;
   padding: 1rem 2rem;
   border-radius: 4px;
   text-transform: uppercase;
 }
 
 .view-more:hover {
-  background: #900;
+  background: var(--primary-color-dark);
 }
 
 .subtitle {
   font-size: 4rem;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.2);
+  color: var(--subtitle);
   text-align: right;
   padding: 40px;
   align-self: center;
-  background-image: url('../img/onda.svg');
+  background-image: var(--bg-image);
 }
 
 .benefits {
-  background: #fff;
+  background: var(--secondy-bg);
   padding: 40px;
 }
 
@@ -133,11 +195,11 @@ ul {
 }
 
 .benefits-item:nth-child(odd) {
-  background: #f7f7f7;
+  background: var(--primary-bg);
 }
 
 .benefits-item:hover {
-  border-color: #e21;
+  border-color: var(--primary-color);
 }
 
 .benefits-item p {
@@ -146,7 +208,7 @@ ul {
 
 .footer {
   width: 100%;
-  background: #fff;
+  background: var(--secondy-bg);
   text-align: center;
   padding: 40px;
   box-sizing: border-box;
